@@ -1,0 +1,31 @@
+{
+  "name": "copypaste",
+  "version": "1.0.0",
+  "description": "A simple sockets copypaste app",
+  "main": "server.js",
+   "engines": {
+    "node": "8.9.4",
+    "npm": "5.6.0"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dhruvp-8/copy-paster.git"
+  },
+  "author": "Dhruv Patel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dhruvp-8/copy-paster/issues"
+  },
+  "homepage": "https://github.com/dhruvp-8/copy-paster#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "morgan": "^1.9.0",
+    "nodemon": "^1.15.0",
+    "path": "^0.12.7",
+    "socket.io": "^2.0.4"
+  }
+}
