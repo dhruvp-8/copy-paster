@@ -49,41 +49,14 @@
 						<div class="alert alert-dismissible alert-danger" id="error" hidden="true"></div>
 					  	<label><b><i>Enter Some Text:</i></b></label>
 					    <textarea class="form-control" id="content" required></textarea><br><hr>
-					    <button type="submit" class="btn btn-block btn-lg btn-outline-primary" onclick="checkEmpty()">Broadcast this Text</button><hr>
+					    <button type="submit" class="btn btn-block btn-lg btn-outline-primary" id="broadcast">Broadcast this Text</button><hr>
 					</div>
 				</div>
   			</div>
   		</div>	
   	</div>
 
-	<script type="text/javascript">
-		var socket = io.connect();
-		var content = $("#content");
-
-		function checkEmpty(){
-			if(content.val() === ''){
-				$('#error').html('Please Enter some Text.');
-				document.getElementById('error').hidden = false;
-			}
-			else{
-				$('#error').html('');
-				document.getElementById('error').hidden = true;
-				socket.emit('content', content.val())
-			}
-		}
-
-
-		socket.on('show connections', function(data){
-			$('#total').html('<b>Total Active Connections are:</b> &nbsp;&nbsp;<strong style="color: white;">'+ data.connections + '</strong>')
-		});	
-
-		socket.on('copied text', function(data){
-			var txt = data.ctext;
-			$('#copiedtext').text(txt);
-			document.getElementById('shower').hidden = false;
-		});	
-
-	</script>
+	<script src="/static/js/main.js"></script>
 
 	 <footer class="footer">
       <div class="container">

@@ -3,11 +3,17 @@ var app = express();
 var path = require('path');
 var morgan = require('morgan');
 var server = require('http').createServer(app)
-var io = require('socket.io').listen(server)
 
 var port = process.env.PORT || 3000;
 
 connections = []
+
+var socketServer = require('http').createServer(app)
+var io = require('socket.io').listen(socketServer)
+
+socketServer.listen(3002, function(){
+	console.log('Socket Server listening on: 3002')
+})
 
 app.use(morgan('dev'));
 app.use(express.static(__dirname + '/'));
