@@ -1,4 +1,4 @@
-var socket = io.connect("https://copy-paster.herokuapp.com:3002");
+var socket = io.connect();
 var content = $("#content");
 
 $(function(){
