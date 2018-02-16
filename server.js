@@ -5,14 +5,15 @@ var morgan = require('morgan');
 var server = require('http').createServer(app)
 
 var port = process.env.PORT || 3000;
+var aport = process.env.PORT || 3002;
 
 connections = []
 
 var socketServer = require('http').createServer(app)
 var io = require('socket.io').listen(socketServer)
 
-socketServer.listen(3002, function(){
-	console.log('Socket Server listening on: 3002')
+socketServer.listen(aport, function(){
+	console.log('Socket Server listening on: ' + aport)
 })
 
 app.use(morgan('dev'));
