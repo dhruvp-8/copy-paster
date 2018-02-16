@@ -4,17 +4,14 @@ var path = require('path');
 var morgan = require('morgan');
 var server = require('http').createServer(app)
 
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 3002;
 //var aport = process.env.PORT || 3002;
 
 connections = []
 
 var socketServer = require('http').createServer(app)
-var io = require('socket.io').listen(server)
+var io = require('socket.io').listen(socketServer)
 
-/*socketServer.listen(aport, function(){
-	console.log('Socket Server listening on: ' + aport)
-})*/
 
 app.use(morgan('dev'));
 app.use(express.static(__dirname + '/'));
@@ -44,6 +41,6 @@ io.on('connection', function(socket){
 });
 
 
-server.listen(port, function(){
-    console.log('Server running at port ' + port);
+socketServer.listen(port, function(){
+	console.log('Socket Server listening on: ' + port)
 });
